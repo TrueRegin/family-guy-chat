@@ -51,6 +51,20 @@ $(document).ready(() => {
         }, 8000)
     }
 
+    function parseMessage(message) {
+        const messageWords = message.split(" ").map(e => {
+            if(e.startsWith("http://") || e.startsWith("https://") || e.includes(".com") || e.includes(".net") || e.includes(".io") || e.includes(".gov") || e.includes(".org")) {
+                if(e.startsWith("http://") || e.startsWith("https://")) {
+                    return `<a target="_blank" href="${e}">${e}</a>`
+                } else {
+                    return `<a target="_blank" href="http://${e}">${e}</a>`
+                }
+            }
+            return e;
+        });
+        return messageWords.join(" ");
+    } 
+
     function sendMessage() {
         if (messageInput.val().trim() !== "") {
             socket.emit("send_message", { message: messageInput.val() });
@@ -68,7 +82,7 @@ $(document).ready(() => {
         message.message = message.message.split("\n").join("<br>");
 
         chat.append(`<div class='chat-item chat-item-style me'>
-        <div class='chat-message'>${message.message}</div>
+        <div class='chat-message'>${parseMessage(message.message)}</div>
         <div class='chat-user'>
             <div class='chat-author'>${message.author}</div>
             <img class='chat-icon' src='${message.iconUrl}' alt='User's icon'/>
@@ -80,7 +94,7 @@ $(document).ready(() => {
         message.message = message.message.split("\n").join("<br>");
 
         chat.append(`<div class='chat-item chat-item-style'>
-        <div class='chat-message'>${message.message}</div>
+        <div class='chat-message'>${parseMessage(message.message)}</div>
         <div class='chat-user'>
             <div class='chat-author'>${message.author}</div>
             <img class='chat-icon' src='${message.iconUrl}' alt='User's icon'/>
