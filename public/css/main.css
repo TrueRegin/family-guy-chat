@@ -1,0 +1,390 @@
+body {
+  margin: 0;
+  font-family: "Roboto light";
+  overflow: hidden;
+}
+
+/**
+    Header Styling
+*/
+@-webkit-keyframes logo {
+  0% {
+  }
+  25% {
+    -webkit-transform: scaleX(1.3) scaleY(0.7);
+            transform: scaleX(1.3) scaleY(0.7);
+  }
+  50% {
+    -webkit-transform: translateY(-15px) scale(0.9);
+            transform: translateY(-15px) scale(0.9);
+  }
+  75% {
+    -webkit-transform: scaleX(1.3) scaleY(0.7);
+            transform: scaleX(1.3) scaleY(0.7);
+  }
+}
+@keyframes logo {
+  0% {
+  }
+  25% {
+    -webkit-transform: scaleX(1.3) scaleY(0.7);
+            transform: scaleX(1.3) scaleY(0.7);
+  }
+  50% {
+    -webkit-transform: translateY(-15px) scale(0.9);
+            transform: translateY(-15px) scale(0.9);
+  }
+  75% {
+    -webkit-transform: scaleX(1.3) scaleY(0.7);
+            transform: scaleX(1.3) scaleY(0.7);
+  }
+}
+
+header#header {
+  display: -ms-grid;
+  display: grid;
+  height: 80px;
+  -ms-grid-columns: 140px 1fr;
+      grid-template-columns: 140px 1fr;
+      grid-template-areas: "logo nav";
+  background: #eaeaea;
+}
+
+header#header #logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+header#header #logo:hover {
+  -webkit-animation: logo 2s infinite;
+          animation: logo 2s infinite;
+  opacity: 0.5;
+}
+
+header#header #nav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nav;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (100px)[5];
+      grid-template-columns: repeat(5, 100px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  padding: 5px;
+}
+
+a {
+  color: #7497ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0a7dff;
+}
+
+.nav-btn {
+  -ms-grid-column: 1;
+  grid-column: 1fr;
+  padding: 10px 20px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60%;
+  -webkit-transition: 105ms;
+  transition: 105ms;
+}
+
+.nav-btn:hover {
+  background: #0003;
+}
+
+/**
+    General Styling
+*/
+#wrapper {
+  display: -ms-grid;
+  display: grid;
+  overflow: none;
+  max-height: 100vh;
+  -ms-grid-rows: 80px 1fr;
+      grid-template-rows: 80px 1fr;
+}
+
+/**
+    Chat Input Styling
+*/
+#chat-input-section {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "input submit";
+  -ms-grid-columns: 1fr 200px;
+      grid-template-columns: 1fr 200px;
+  height: 80px;
+  border: 2px solid #333;
+}
+
+#message-input {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: input;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-transition: 85ms;
+  transition: 85ms;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Fira Code";
+  max-lines: 10;
+  resize: none;
+}
+
+#message-input:hover {
+  background: #0001;
+}
+
+#message-input:focus {
+  background: #d4e2ff;
+}
+
+#message-submit {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: submit;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: #eaeaea;
+  border-left: 2px solid #333;
+  cursor: pointer;
+  -webkit-transition: 85ms;
+  transition: 85ms;
+}
+
+#message-submit:hover {
+  background: #dadada;
+}
+
+#message-submit:focus {
+  background: #d4e2ff;
+}
+
+/**
+    Chat Styling
+*/
+#chat-container {
+  display: -ms-grid;
+  display: grid;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -ms-grid-rows: max-content 1fr;
+      grid-template-rows: -webkit-max-content 1fr;
+      grid-template-rows: max-content 1fr;
+}
+
+#chat {
+  background-image: url("/images/potato-bg.jpg");
+  min-height: 600px;
+  max-height: 600px;
+  overflow-y: auto;
+  background-repeat: repeat;
+  background-size: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chat-item-style {
+  background: #fff;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 15px;
+  margin: 5px 10px;
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+  font-family: "Fira Code";
+  width: 65%;
+}
+
+.chat-item {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "user message";
+  -ms-grid-columns: 80px 1fr;
+      grid-template-columns: 80px 1fr;
+}
+
+.chat-message {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: message;
+}
+
+.chat-user {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: user;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "icon" "author";
+}
+
+.chat-icon {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: icon;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.chat-author {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: author;
+  text-align: center;
+}
+
+.me {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+/**
+    Status Feed Styling
+*/
+#status-feed {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 150px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: -ms-grid;
+  display: grid;
+  background: #eaeaea;
+  outline: none;
+  outline-color: #000;
+  cursor: copy;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+#status-feed:focus {
+  border: 3px solid #000;
+  width: 80vw;
+  max-height: 90vh;
+}
+
+#status-feed .feed-item-container {
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+#status-feed .feed-item-container:hover .feed-item {
+  -webkit-transform: scale(0.88);
+          transform: scale(0.88);
+}
+
+#feed-clear-all {
+  background: #c000fa;
+}
+
+.feed-item {
+  display: -ms-grid;
+  display: grid;
+  text-align: start;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid #0003;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 5px 5px 5px 20px;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-family: "Fira code";
+  font-size: 18;
+  color: #0004;
+}
+
+.feed-error {
+  background: #f74e4e;
+}
+
+.feed-warning {
+  background: #ffce2f;
+  color: #ff8800;
+}
+
+.feed-success {
+  background: #2aff7f;
+  color: #007833;
+}
+
+/**
+    About Styling
+*/
+#about {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+/*# sourceMappingURL=main.css.map */

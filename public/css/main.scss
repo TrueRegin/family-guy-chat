@@ -1,0 +1,335 @@
+body {
+    margin: 0;
+    font-family: "Roboto light";
+    overflow: hidden;
+}
+
+/**
+    Header Styling
+*/
+@keyframes logo {
+    0% {
+    }
+
+    25% {
+        transform: scaleX(1.3) scaleY(0.7);
+    }
+
+    50% {
+        transform: translateY(-15px) scale(0.9);
+    }
+
+    75% {
+        transform: scaleX(1.3) scaleY(0.7);
+    }
+}
+
+header#header {
+    display: grid;
+    height: 80px;
+
+    grid-template-columns: 140px 1fr;
+    grid-template-areas: "logo nav";
+
+    background: #eaeaea;
+
+    #logo {
+        grid-area: logo;
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+        transition: 250ms;
+        cursor: pointer;
+
+        &:hover {
+            animation: logo 2s infinite;
+            opacity: 0.5;
+        }
+    }
+    #nav {
+        grid-area: nav;
+
+        display: grid;
+        grid-template-columns: repeat(5, 100px);
+        justify-content: center;
+        align-items: center;
+
+        column-gap: 10px;
+        padding: 5px;
+    }
+}
+
+a {
+    color: #7497ff;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        color: #0a7dff;
+    }
+}
+
+.nav-btn {
+    grid-column: 1fr;
+    padding: 10px 20px;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    height: 60%;
+    transition: 105ms;
+
+    &:hover {
+        background: #0003;
+    }
+}
+
+/**
+    General Styling
+*/
+#wrapper {
+    display: grid;
+    overflow: none;
+
+    max-height: 100vh;
+
+    grid-template-rows: 80px 1fr;
+}
+
+/**
+    Chat Input Styling
+*/
+#chat-input-section {
+    display: grid;
+    grid-template-areas: "input submit";
+    grid-template-columns: 1fr 200px;
+
+    height: 80px;
+    border: 2px solid #333;
+}
+#message-input {
+    grid-area: input;
+    padding: 8px 20px;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+
+    transition: 85ms;
+    display: grid;
+
+    align-items: center;
+
+    font-family: "Fira Code";
+    max-lines: 10;
+    resize: none;
+
+    &:hover {
+        background: #0001;
+    }
+
+    &:focus {
+        background: #d4e2ff;
+    }
+}
+#message-submit {
+    grid-area: submit;
+
+    border: none;
+    border-radius: 0;
+    outline: none;
+
+    background: #eaeaea;
+    border-left: 2px solid #333;
+
+    cursor: pointer;
+    transition: 85ms;
+
+    &:hover {
+        background: #dadada;
+    }
+
+    &:focus {
+        background: #d4e2ff;
+    }
+}
+
+/**
+    Chat Styling
+*/
+#chat-container {
+    display: grid;
+    height: max-content;
+
+    grid-template-rows: max-content 1fr;
+}
+#chat {
+    background-image: url("/images/potato-bg.jpg");
+
+    min-height: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+
+    background-repeat: repeat;
+    background-size: 100px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-item-style {
+    background: #fff;
+    height: max-content;
+
+    padding: 15px;
+    margin: 5px 10px;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+
+    font-family: "Fira Code";
+
+    width: 65%;
+}
+.chat-item {
+    display: grid;
+    grid-template-areas: "user message";
+
+    grid-template-columns: 80px 1fr;
+}
+.chat-message {
+    grid-area: message;
+}
+.chat-user {
+    grid-area: user;
+
+    display: grid;
+    grid-template-areas:
+        "icon"
+        "author";
+}
+.chat-icon {
+    grid-area: icon;
+
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+
+    justify-self: center;
+}
+.chat-author {
+    grid-area: author;
+
+    text-align: center;
+}
+.me {
+    align-self: flex-end;
+}
+
+/**
+    Status Feed Styling
+*/
+#status-feed {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+
+    width: 150px;
+    max-height: 400px;
+
+    overflow-y: auto;
+
+    display: grid;
+
+    
+    background: #eaeaea;
+    outline: none;
+    outline-color: #000;
+
+    cursor: copy;
+    transition: 500ms;
+
+    &:focus {
+        border: 3px solid #000;
+        width: 80vw;
+        max-height: 90vh;
+    }
+
+    .feed-item-container {
+        transition: 100ms;
+
+        &:hover {
+            .feed-item {
+                transform: scale(0.88);
+            }
+        }
+    }
+}
+
+#feed-content {
+}
+
+#feed-clear-all {
+    background: #c000fa;
+}
+
+.feed-item {
+    display: grid;
+    text-align: start;
+
+    cursor: pointer;
+    user-select: none;
+
+    border: 1px solid #0003;
+    border-radius: 3px;
+
+    margin: 5px;
+    padding: 5px 5px 5px 20px;
+
+    transition: 250ms;
+
+    font-family: "Fira code";
+    font-size: 18;
+    color: #0004;
+}
+
+.feed-error {
+    background: #f74e4e;
+    // color: #cc0000;
+}
+
+.feed-warning {
+    background: #ffce2f;
+    color: #ff8800;
+}
+
+.feed-success {
+    background: #2aff7f;
+    color: #007833;
+}
+
+/**
+    About Styling
+*/
+#about {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}

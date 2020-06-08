@@ -1,0 +1,21 @@
+html
+    head
+        title Haha Family Guy Chat
+        link(rel='stylesheet' href='css/main.css')
+        link(rel='icon' href='icons/peter.png')
+    body
+        #wrapper
+            header#header
+                #logo
+                    a(href='/')
+                        img(src="icons/logo.png", alt="Family Guy Logo" width=100)
+                        div Chat
+                #nav
+                    a.nav-btn(href='/') Home
+                    a.nav-btn(href='/about') About
+            main#main
+                block content
+        #status-feed(tabindex=0)
+            #feed-content
+            #feed-clear-all
+        block scripts
