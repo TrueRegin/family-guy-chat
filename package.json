@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "A chat app that is awesome",
     "main": "app.js",
-    "scripts": {},
+    "scripts": {
+        "start": "node ."
+    },
     "author": "Random.test",
     "license": "ISC",
     "dependencies": {
