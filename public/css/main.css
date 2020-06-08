@@ -213,12 +213,12 @@ a:hover {
 }
 
 #chat {
-  background-image: url("/images/potato-bg.jpg");
+  background-image: url("/images/letter-bg.png");
   min-height: 600px;
   max-height: 600px;
   overflow-y: auto;
   background-repeat: repeat;
-  background-size: 100px;
+  background-size: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -386,5 +386,6 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
   background: #555;
+  border: 1px solid fff;
 }
 /*# sourceMappingURL=main.css.map */
